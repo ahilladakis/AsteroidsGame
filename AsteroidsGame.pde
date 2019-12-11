@@ -36,11 +36,11 @@ public void keyPressed()
 {
   if (key == 'a')
   {
-    ricardoSuong.turn(10);
+    ricardoSuong.turn(-10);
     System.out.println("turn right");
   }
   if (key == 'd') {
-    ricardoSuong.turn(-10);
+    ricardoSuong.turn(10);
   }
   if (key == 'w') {
     ricardoSuong.accelerate(1);

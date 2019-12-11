@@ -12,3 +12,4 @@ public class Star
     ellipse(myX, myY, 3, 3);
   }
 }
+

@@ -16,18 +16,7 @@ class Spaceship extends Floater
         myCenterX = 300;
         myCenterY = 300;
     }
-    public void setMyRed (int red)
-    {
-      myRed = red;
-    }
-    public void setMyGreen (int green)
-    {
-      myGreen = green;
-    }
-    public void setMyBlue (int blue)
-    {
-      myBlue = blue;
-    }
+    
     public void setCenterX(int x)
     {
         myCenterX = x;

@@ -1,8 +1,8 @@
 Spaceship ricardoSuong;
 ArrayList <Asteroid> demAsters;
+ArrayList <Bullet> boi = new ArrayList <Bullet>();
 Star [] purtySky = new Star[600];
 
-int health = 0;
 public void setup() 
 {
   size (600, 600);
@@ -29,48 +29,51 @@ public void draw()
     demAsters.get(i).show();
     demAsters.get(i).move();
   }
+  for(int i = 0; i < boi.size(); i++)
+  {
+    boi.get(i).show();
+    boi.get(i).move();
+  } 
+  for (int i = 0; i < boi.size(); i++)
+  {
+    for (int p = 0; p < demAsters.size(); p++)
+    {
+      if(dist(boi.get(i).getX(), boi.get(i).getY(), demAsters.get(p).getX(), demAsters.get(p).getY()) < 20)
+        demAsters.remove(p);
+    }
+  }
   ricardoSuong.show();
   ricardoSuong.move();
 }
+
 public void keyPressed()
 {
   if (key == 'a')
   {
     ricardoSuong.turn(-10);
-    System.out.println("turn right");
   }
-  if (key == 'd') {
+  if (key == 'd') 
+  {
     ricardoSuong.turn(10);
   }
-  if (key == 'w') {
-    ricardoSuong.accelerate(1);
+  if (key == 'w') 
+  {
+    ricardoSuong.accelerate(.5);
   }
   if (key == 's')
   {
-    ricardoSuong.accelerate(-1);
+    ricardoSuong.accelerate(-.5);
   }
-  if (key == 'r')
+  if (key == ' ')
   {
-    health = 100;
+    boi.add(new Bullet(ricardoSuong));
   }
   if (key == 'h')
   {
     ricardoSuong.setCenterX((int)(Math.random()*600));
     ricardoSuong.setCenterY((int)(Math.random()*600));
-    ricardoSuong.setPointDirection(Math.random()*360);
+    ricardoSuong.setPointDirection((double)Math.random()*360);
     ricardoSuong.setDirectionX(0);
     ricardoSuong.setDirectionY(0);
-  }
-  if(key == 'r')
-  {
-  health = 100;
-  }
-  if(key == 'h')
-  {
-  ricardoSuong.setCenterX((int)(Math.random()*600));
-  ricardoSuong.setCenterY((int)(Math.random()*600));
-  ricardoSuong.setPointDirection((int)Math.random()*360);
-  ricardoSuong.setDirectionX(0);
-  ricardoSuong.setDirectionY(0);
   }
 }

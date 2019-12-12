@@ -17,10 +17,10 @@ class Floater //Do NOT modify the Floater class! Make changes in the Spaceship c
     myDirectionX += ((dAmount) * Math.cos(dRadians));    
     myDirectionY += ((dAmount) * Math.sin(dRadians));       
   }   
-  public void turn (int nDegreesOfRotation)   
+  public void turn (double degreesOfRotation)   
   {     
     //rotates the floater by a given number of degrees    
-    myPointDirection+=nDegreesOfRotation;   
+    myPointDirection+=degreesOfRotation;   
   }   
   public void move ()   //move the floater in the current direction of travel
   {      
@@ -72,4 +72,4 @@ class Floater //Do NOT modify the Floater class! Make changes in the Spaceship c
     rotate(-1*dRadians);
     translate(-1*(float)myCenterX, -1*(float)myCenterY);
   }   
-} 
+}
